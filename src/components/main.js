@@ -5,7 +5,7 @@ export default class Main extends Component {
        super(props)
 
        this.state = {
-           task: " "
+           tasks: []
        }
        this.getTask = this.getTask.bind(this)
        this.addNewTask = this.addNewTask.bind(this)
@@ -13,12 +13,12 @@ export default class Main extends Component {
 
    getTask(e) {
        this.setState({
-           task: e.target.value
+           tasks: e.target.value
         })
       
    }
-   addNewTask(e) {
-      alert(this.state.task)
+   addNewTask() {
+      console.log(this.state.tasks)
    }
 
   render() {
@@ -30,8 +30,9 @@ export default class Main extends Component {
       <input onClick={this.getTask} type="text"></input>
 
       <button onClick={this.addNewTask}>Add task</button>
-
-         <h6>{this.state.task}</h6>
+                <ul>
+                    <li>{this.state.tasks}</li>
+                </ul>
       </div>
     )
   }
