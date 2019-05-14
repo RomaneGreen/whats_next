@@ -31,7 +31,7 @@ export default class Main extends Component {
 
       <button onClick={this.addNewTask}>Add task</button>
                 <ul>
-                   {this.state.tasks.map(task => <li>task</li>)}
+                   {this.state.tasks.map(task => <li>{task}</li>)}
                 </ul>
       </div>
     )
