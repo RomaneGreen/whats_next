@@ -6,7 +6,7 @@ export default class Main extends Component {
        super(props)
 
        this.state = {
-           tasks: ["run ","jump"," fly " ],
+           tasks: ["run ","jump"," fly "],
            value: ''
        }
        
@@ -50,13 +50,28 @@ export default class Main extends Component {
         console.log(this.state.value)
    }
 
+   deleteKey = (keyed) => {
+        
+    
+    let removeTask = this.state.tasks.filter( task => task !== keyed)
+
+    
+
+       
+    this.setState({
+        tasks : removeTask
+    })
+    
    
+     
+    
+   }
 
   render() {
-      const things = this.state.tasks.map( (task,i) => <li key={i}>{task}<button onClick={this.removeIt}>X</button></li>)
+      const things = this.state.tasks.map( (task,key) => <li key={task} onClick={ () => this.deleteKey(task)}><span>{task}</span></li>)
     return (
       <div>
-        
+          
         <h1>What to do ? </h1>
         <form>  
       <input type="text" value={this.state.value} onChange={this.handleChange} ></input>
