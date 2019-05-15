@@ -12,12 +12,17 @@ export default class Main extends Component {
    }
 
    addNewTask(e) {
+      e.preventDefault()
     const newTaskList = this.state.tasks.concat([ e.target.value]);
+    this.setState({
+        tasks: newTaskList
+     })
+        
+   }
 
-       this.setState({
-           tasks: newTaskList
-        })
-      
+   setTask() {
+
+   
    }
    
 
@@ -26,13 +31,13 @@ export default class Main extends Component {
       <div>
         
         <h1>What to do ? </h1>
-        
+        <form onSubmit={this.addNewTask}>
       <input onClick={this.addNewTask} type="text"></input>
-
       <button>Add task</button>
                 <ul>
                    {this.state.tasks.map( task => <li>{task}</li>)}
                 </ul>
+        </form>
       </div>
     )
   }
