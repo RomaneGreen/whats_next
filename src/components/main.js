@@ -19,6 +19,7 @@ export default class Main extends Component {
      const newTaskList = this.state.tasks.concat([ e.target.value ]);
 
      this.setState({
+
          tasks: newTaskList,
        
       })
@@ -35,9 +36,9 @@ export default class Main extends Component {
          
       })
     
-      console.log()
+    
    }
-   
+  
 
   render() {
     return (
@@ -45,11 +46,11 @@ export default class Main extends Component {
         
         <h1>What to do ? </h1>
         <form>  
-      <input onClick={this.setTask} type="text"></input>
+      <input onClick={this.addNewTask}  type="text" ></input>
       <button> Add task</button>
       <button onClick={this.removeTasks}>Remove all tasks</button>
                 <ul>
-                   {this.state.tasks.map( task => <li>{task}</li>)}
+                   {this.state.tasks.map( task => <li>{task} </li>)}
                 </ul>
         </form>
       </div>
