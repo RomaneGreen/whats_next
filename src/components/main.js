@@ -50,8 +50,10 @@ export default class Main extends Component {
         console.log(this.state.value)
    }
 
+   
+
   render() {
-      const things = this.state.tasks.map( task => <li>{task} </li>)
+      const things = this.state.tasks.map( (task,i) => <li key={i}>{task}<button onClick={this.removeIt}>X</button></li>)
     return (
       <div>
         
@@ -60,10 +62,10 @@ export default class Main extends Component {
       <input type="text" value={this.state.value} onChange={this.handleChange} ></input>
       <button onClick={this.addNewTask}> Add task</button>
       <button onClick={this.removeTasks}>Remove all tasks</button>
-                <ul>
-                   {this.state.tasks.map( task => <li>{task} </li>)}
-                   {things}
-                </ul>
+                <ol>
+                  {/* {this.state.tasks.map( task => <li>{task} </li>)} */}
+                  {things}
+                </ol>
         </form>
       </div>
     )
