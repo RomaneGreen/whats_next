@@ -23,6 +23,7 @@ export default class Main extends Component {
      this.setState({
 
          tasks: newTaskList,
+         value: ""
        
       })
       
@@ -51,6 +52,7 @@ export default class Main extends Component {
    }
 
   render() {
+      const things = this.state.tasks.map( task => <li>{task} </li>)
     return (
       <div>
         
@@ -61,6 +63,7 @@ export default class Main extends Component {
       <button onClick={this.removeTasks}>Remove all tasks</button>
                 <ul>
                    {this.state.tasks.map( task => <li>{task} </li>)}
+                   {things}
                 </ul>
         </form>
       </div>
