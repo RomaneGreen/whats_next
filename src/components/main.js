@@ -5,23 +5,21 @@ export default class Main extends Component {
        super(props)
 
        this.state = {
-           tasks: ["run ","jump"," fly"]
+           tasks: ["run ","jump"," fly " ]
        }
-       this.getTask = this.getTask.bind(this)
+       
        this.addNewTask = this.addNewTask.bind(this)
    }
 
-   getTask(e) {
-    const newTaskList = this.state.tasks.concat([e.target.value]);
+   addNewTask(e) {
+    const newTaskList = this.state.tasks.concat([ e.target.value]);
 
        this.setState({
            tasks: newTaskList
         })
       
    }
-   addNewTask() {
-      console.log(this.state.tasks)
-   }
+   
 
   render() {
     return (
@@ -29,11 +27,11 @@ export default class Main extends Component {
         
         <h1>What to do ? </h1>
         
-      <input onClick={this.getTask} type="text"></input>
+      <input onClick={this.addNewTask} type="text"></input>
 
-      <button onClick={this.addNewTask}>Add task</button>
+      <button>Add task</button>
                 <ul>
-                   {this.state.tasks}
+                   {this.state.tasks.map( task => <li>{task}</li>)}
                 </ul>
       </div>
     )
