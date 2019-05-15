@@ -1,28 +1,41 @@
 import React, { Component } from 'react'
 
+
 export default class Main extends Component {
    constructor(props){
        super(props)
 
        this.state = {
-           tasks: ["run ","jump"," fly " ]
+           tasks: ["run ","jump"," fly " ],
+           nextTask: ""
        }
        
        this.addNewTask = this.addNewTask.bind(this)
    }
 
    addNewTask(e) {
-      e.preventDefault()
-    const newTaskList = this.state.tasks.concat([ e.target.value]);
-    this.setState({
-        tasks: newTaskList
-     })
-        
+       
+       
+     const newTaskList = this.state.tasks.concat([ e.target.value ]);
+
+     this.setState({
+         tasks: newTaskList,
+       
+      })
+      
    }
 
-   setTask() {
+   removeTasks = (e) => {
 
-   
+   e.preventDefault()
+
+    this.setState({
+        
+      tasks : []
+         
+      })
+    
+      console.log()
    }
    
 
@@ -31,9 +44,10 @@ export default class Main extends Component {
       <div>
         
         <h1>What to do ? </h1>
-        <form onSubmit={this.addNewTask}>
-      <input onClick={this.addNewTask} type="text"></input>
-      <button>Add task</button>
+        <form>  
+      <input onClick={this.setTask} type="text"></input>
+      <button> Add task</button>
+      <button onClick={this.removeTasks}>Remove all tasks</button>
                 <ul>
                    {this.state.tasks.map( task => <li>{task}</li>)}
                 </ul>
