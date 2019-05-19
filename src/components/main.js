@@ -18,7 +18,7 @@ export default class Main extends Component {
        e.preventDefault()
 
     // const newTaskList = this.state.tasks.concat([ this.state.value ]);
-        const newTaskList = [this.state.value,...this.state.task]
+        const newTaskList = [this.state.value,...this.state.tasks]
      this.setState({
 
          tasks: newTaskList,
@@ -68,7 +68,7 @@ export default class Main extends Component {
    }
 
   render() {
-      const things = this.state.tasks.map( (task,key) => <li key={task} onClick={ () => this.deleteKey(task)}><span>{task}</span></li>)
+      const things = this.state.tasks.map( (task,key) => <li key={task} onClick={ () => this.deleteKey(task)}><span>{task}</span></li>).reverse()
     return (
       <div>
           
