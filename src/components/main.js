@@ -17,8 +17,8 @@ export default class Main extends Component {
        
        e.preventDefault()
 
-     const newTaskList = this.state.tasks.concat([ this.state.value ]);
-
+    // const newTaskList = this.state.tasks.concat([ this.state.value ]);
+        const newTaskList = [this.state.value,...this.state.task]
      this.setState({
 
          tasks: newTaskList,
@@ -74,14 +74,16 @@ export default class Main extends Component {
           
         <h1>What to do ? </h1>
         <form>  
-      <input type="text" value={this.state.value} onChange={this.handleChange} ></input>
+      <input type="text" value={this.state.value} onChange={this.handleChange} placeHolder="add a task..." ></input>
       <button onClick={this.addNewTask}> Add task</button>
       <button onClick={this.removeTasks}>Remove all tasks</button>
                 <ol>
                   {/* {this.state.tasks.map( task => <li>{task} </li>)} */}
                   {things}
+                  
                 </ol>
         </form>
+        
       </div>
     )
   }
